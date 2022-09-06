@@ -69,11 +69,6 @@
 
 <span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>2. </span> _Project_</span>
 
-|          Plugin          | Description                                                                                   |
-| :----------------------: | --------------------------------------------------------------------------------------------- |
-|  **`Better Comments`**   | The Better Comments extension will help you create more human-friendly comments in your code. |
-| **`VSCode Great Icons`** | better icons for the folders and files                                                        |
-
 <span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>3. </span> _Debug Mode_</span>
 
 ```json
