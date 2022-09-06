@@ -99,10 +99,12 @@
 
 <span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>4. </span> _VSCode Plugins_</span>
 
-|          Plugin          | Description                                                                                   |
-| :----------------------: | --------------------------------------------------------------------------------------------- |
-|  **`Better Comments`**   | The Better Comments extension will help you create more human-friendly comments in your code. |
-| **`VSCode Great Icons`** | better icons for the folders and files                                                        |
+|             Plugin              | Description                                                                                   |
+| :-----------------------------: | --------------------------------------------------------------------------------------------- |
+|      **`Better Comments`**      | The Better Comments extension will help you create more human-friendly comments in your code. |
+|    **`VSCode Great Icons`**     | better icons for the folders and files                                                        |
+|    **`Markdown All in One`**    | Markdown All in One                                                                           |
+| **`Markdown Preview Enhanced`** | Markdown Preview Enhanced for more readability - All the styles                               |
 
 <span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>5. </span> _Folder Structure_</span>
 
