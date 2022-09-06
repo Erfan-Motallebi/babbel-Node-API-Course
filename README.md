@@ -34,7 +34,7 @@
 
 > I also added the <span style='color: #A62349; font-weight: bold;'>Dockerfile</span> and <span style='color: #A62349; font-weight: bold;'>Docker-compose.yaml</span> file to be more precise in case of **`IaaC`**
 
-> I also dded the <span style='color: #F675A8; font-weight: bold;'>Diagram</span> of the **cardinality** among the tables
+> I also added the <span style='color: #F675A8; font-weight: bold;'>Diagram</span> of the **cardinality** among the tables
 
 > I also added the <span style='color: #F675A8; font-weight: bold;'>Postman Collection JSON</span> file to import the all the **routes** and **collection-wide variables**
 
