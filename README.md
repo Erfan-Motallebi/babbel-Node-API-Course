@@ -50,7 +50,7 @@
 
 <span id='ProjectManagment' style='color: #A460ED; font-weight: bold; font-size: 2.5rem'>Project Managment</span>
 
-<span style='font-weight: bold; font-size: 1.5rem'>1. _Script_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>1. </span>_Script_</span>
 
 ```json
 {
@@ -67,14 +67,14 @@
 
 > You should add the postgres **bin** folder to the system path _if you're using windows_
 
-<span style='font-weight: bold; font-size: 1.5rem'>2. _Project_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>2. </span> _Project_</span>
 
 |          Plugin          | Description                                                                                   |
 | :----------------------: | --------------------------------------------------------------------------------------------- |
 |  **`Better Comments`**   | The Better Comments extension will help you create more human-friendly comments in your code. |
 | **`VSCode Great Icons`** | better icons for the folders and files                                                        |
 
-<span style='font-weight: bold; font-size: 1.5rem'>3. _Debug Mode_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>3. </span> _Debug Mode_</span>
 
 ```json
 {
@@ -97,14 +97,14 @@
 }
 ```
 
-<span style='font-weight: bold; font-size: 1.5rem'>3. _VSCode Plugins_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>4. </span> _VSCode Plugins_</span>
 
 |          Plugin          | Description                                                                                   |
 | :----------------------: | --------------------------------------------------------------------------------------------- |
 |  **`Better Comments`**   | The Better Comments extension will help you create more human-friendly comments in your code. |
 | **`VSCode Great Icons`** | better icons for the folders and files                                                        |
 
-<span style='font-weight: bold; font-size: 1.5rem'>4. _Folder Structure_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>5. </span> _Folder Structure_</span>
 
 - <span style='color: #3AB0FF;font-weight: bold; font-size: 1.3rem'>src</span>
   > This is a place where all the files are stored
