@@ -67,9 +67,7 @@
 
 > You should add the postgres **bin** folder to the system path _if you're using windows_
 
-<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>2. </span> _Project_</span>
-
-<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>3. </span> _Debug Mode_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>2. </span> _Debug Mode_</span>
 
 ```json
 {
@@ -92,7 +90,7 @@
 }
 ```
 
-<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>4. </span> _VSCode Plugins_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>3. </span> _VSCode Plugins_</span>
 
 |             Plugin              | Description                                                                                   |
 | :-----------------------------: | --------------------------------------------------------------------------------------------- |
@@ -101,7 +99,7 @@
 |    **`Markdown All in One`**    | Markdown All in One                                                                           |
 | **`Markdown Preview Enhanced`** | Markdown Preview Enhanced for more readability - All the styles                               |
 
-<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>5. </span> _Folder Structure_</span>
+<span style='font-weight: bold; font-size: 1.5rem'><span style='color: #FFC54D'>4. </span> _Folder Structure_</span>
 
 - <span style='color: #3AB0FF;font-weight: bold; font-size: 1.3rem'>src</span>
   > This is a place where all the files are stored
