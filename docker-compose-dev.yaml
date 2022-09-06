@@ -1,0 +1,64 @@
+version: "3.8"
+services:
+  # these are the configuration for the Node App
+  # Using the docker-compose file we are 2 steps fast than the Dockerfile configuration
+  # 1. Dockerfile Automation [ Starting (up) and stopping the containers (down) easily]
+  # 2. Creating a network for the new envoirnment including the services
+  # the second advantage of docker-compose file makes our life easy when using the service name inside our .(js|ts) files
+  backend:
+    build:
+      # ? seperation of concerns relating the Dockerfile naming convention
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: app
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_PORT=${APP_PORT}
+      - APP_HOSTNAME=${APP_HOSTNAME}
+      - PGHOST=${PGHOST}
+      - PGUSER=${PGUSER}
+      - PGDATABASE=${PGDATABASE}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGPORT=${PGPORT}
+    expose:
+      - "3000"
+    volumes:
+      # ? maps working directory `.` to our working container in case of sudden change [ Reload automatically ]
+      - ./:/usr/babbel/backend/app
+      # ? node_module workaround for volumes
+      # ? in case of duplication node_modules at both working directory and working container
+      # ? you can remove the node_modules in the working directory
+      - /usr/babbel/backend/app/node_modules
+      # ? in case of deployment
+    deploy:
+      resources:
+        limits:
+          memory: 128mb
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_DB=${PGDATABASE}
+    ports:
+      - "5432": "5432"
+    volumes:
+      - pgData:/var/lib/postgresql/data
+      # ? When the PostgresSQL container is started it will run any scripts
+      # ? provided in the `docker-entrypoint-initdb.d` directory
+      - ./database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
+
+    # ? PostgreSQL pgAdmin panel accessible at http://localhost:16543/
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres

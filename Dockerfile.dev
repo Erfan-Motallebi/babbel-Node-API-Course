@@ -1,0 +1,53 @@
+FROM node:16-alpine3.16
+
+# * Variables in a Dockerfile
+# * ARG can be overidden using a ENV with the same name [ CAUTION ]
+ARG app_directory=/usr/babbel/backend/app
+ARG appGrp=babbelGrp
+ARG appUsr=babbelUsr
+
+# * Metadata about the Dockerfile
+LABEL composer="Erfan-Motallebi"
+LABEL version="1.0.0"
+LABEL environment="development"
+
+# ! [USER Process]
+# * In case of security you add a user
+# RUN addgroup app && adduser -S ${appUsr} -G ${appGrp}
+
+# * Create app directory
+WORKDIR ${app_directory}
+
+# * install the app dependencies
+# * using RegExpr to take both package.json and package-lock.json [ in case of developers in a team]
+# * Copying the dependencies helps in Dockerfile implementation during layering the steps in case of changes during develepment mode
+COPY package*.json ./
+
+# ! [USER Process]
+# COPY --chown=${appUsr}:${appGrp} package*.json ./
+
+# * Running the NPM command in order to install app dependencies
+# RUN command is applied during the container construction
+RUN npm install
+
+# ! [USER Process]
+# RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
+
+
+# * in case of production mode
+# RUN npm ci --only=production
+
+# * bundle app resource
+COPY ./ ./
+
+# ! [USER Process]
+# COPY --chown=${appUsr}:grou${appGrp} ./ ./
+# USER ${appUsr}
+
+# ? Expose a port to show on which port the app is listening. [ It's not real but as a signature for developers]
+EXPOSE 3000
+
+# * Running the app after above instructions
+# * CMD command is applied when running a container
+# * We could've used ENTRYPOINT in case of a static command [ not allowed to change ] when running a container
+CMD [ "npm", "run", "start" ]
