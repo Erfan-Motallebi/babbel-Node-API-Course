@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "fd83802b-2723-4fda-af9b-6c9bf450cc29",
+		"name": "Babbel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14659771"
+	},
+	"item": [
+		{
+			"name": "Use API",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "Erfannn",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Motallebiiii",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ErfanC0d3rZZZ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Erfan++C0d#RZZz!",
+									"type": "text"
+								},
+								{
+									"key": "profile_pic",
+									"type": "file",
+									"src": "/C:/Users/ezipc/Pictures/avatar_me.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/user/signup",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a user by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const userSchema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": { \"type\": \"string\" },\r",
+									"        \"firstname\": { \"type\": \"string\" },\r",
+									"        \"lastname\": { \"type\": \"string\" },\r",
+									"        \"username\": { \"type\": \"string\" },\r",
+									"        \"profile_pic\": { \"type\": \"string\" },\r",
+									"        \"created_at\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\r",
+									"        \"id\",\r",
+									"        \"firstname\",\r",
+									"        \"lastname\",\r",
+									"        \"username\",\r",
+									"        \"profile_pic\"\r",
+									"    ],\r",
+									"    \"optionalProperties\": [\r",
+									"        \"created_at\"\r",
+									"    ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"User Schema Validation\", function () {\r",
+									"    pm.response.to.have.jsonSchema(userSchema)\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/user/info/:userId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"user",
+								"info",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a user by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "Stranger",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "unknown",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "killerWasHere",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Erfan++C0d#RZZz!++",
+									"type": "text"
+								},
+								{
+									"key": "profile_pic",
+									"type": "file",
+									"src": "/C:/Users/ezipc/Pictures/images.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/user/update/:userId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"user",
+								"update",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a user by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Najme\",\r\n    \"lastname\": \"Gharoun\",\r\n    \"username\": \"NajmeGharoun\",\r\n    \"password\": \"Najme+!!Gharoun\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/user/delete/:userId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"user",
+								"delete",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "language API",
+			"item": [
+				{
+					"name": "Get all languages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/list",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a language",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Persian\",\r\n    \"code\": \"FA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/add",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a lang by Id - Optional fields",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Persian\",\r\n    \"code\": \"IR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/update/:langId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"update",
+								":langId"
+							],
+							"variable": [
+								{
+									"key": "langId",
+									"value": "{{langId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a lang by Id - Required fields",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Russian\",\r\n    \"code\": \"RU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/update/:langId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"update",
+								":langId"
+							],
+							"variable": [
+								{
+									"key": "langId",
+									"value": "{{langId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a lang",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/delete/:langId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"delete",
+								":langId"
+							],
+							"variable": [
+								{
+									"key": "langId",
+									"value": "{{langId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all langs",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/language/delete",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"language",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lesson API",
+			"item": [
+				{
+					"name": "Get All lessons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/lesson/list",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"lesson",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a lesson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"BBB\",\r\n    \"lesson_text\": \"EEERRRTTTYYUUU\",\r\n    \"language_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/lesson/add",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"lesson",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a lesson",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mammita\",\r\n    \"lesson_text\": \"Meine Mutter ist nicht zu Hause\",\r\n    \"language_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/lesson/update/:lessonId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"lesson",
+								"update",
+								":lessonId"
+							],
+							"variable": [
+								{
+									"key": "lessonId",
+									"value": "{{lessonId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a lesson by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/lesson/delete/:lessonId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"lesson",
+								"delete",
+								":lessonId"
+							],
+							"variable": [
+								{
+									"key": "lessonId",
+									"value": "{{lessonId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course API",
+			"item": [
+				{
+					"name": "Add a course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"English Course\",\r\n    \"active_lesson\": 1,\r\n    \"lessons\": [\r\n        1,\r\n        2\r\n    ],\r\n    \"owner\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/course/add",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"course",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/course/list",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"course",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all courses for a single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/course/:userId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"course",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a course by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/course/delete/:courseId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"course",
+								"delete",
+								":courseId"
+							],
+							"variable": [
+								{
+									"key": "courseId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a course by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"German Course\",\r\n    \"active_lesson\": 1,\r\n    \"lessons\": [\r\n        1,\r\n        2\r\n    ],\r\n    \"owner\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{schema}}://{{localhost}}:{{port}}/course/update/:userId",
+							"protocol": "{{schema}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"course",
+								"update",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "{{courseId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": ""
+		},
+		{
+			"key": "port",
+			"value": ""
+		},
+		{
+			"key": "schema",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "langId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "lessonId",
+			"value": "1"
+		},
+		{
+			"key": "courseId",
+			"value": "1"
+		}
+	]
+}
