@@ -46,6 +46,8 @@
 
 > I made an attempt to follow some **principles** like
 
+> API could be more clarified using **OpenAPI** | **Swagger**
+
 ---
 
 <span id='ProjectManagment' style='color: #A460ED; font-weight: bold; font-size: 2.5rem'>Project Managment</span>
