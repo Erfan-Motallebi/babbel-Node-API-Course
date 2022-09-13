@@ -1,10 +1,10 @@
 version: "3.8"
 services:
   # these are the configuration for the Node App
-  # Using the docker-compose file we are 2 steps fast than the Dockerfile configuration
+  # Using the docker-compose file we are 2 steps faster than the Dockerfile configuration
   # 1. Dockerfile Automation [ Starting (up) and stopping the containers (down) easily]
   # 2. Creating a network for the new envoirnment including the services
-  # the second advantage of docker-compose file makes our life easy when using the service name inside our .(js|ts) files
+  # the second advantage of docker-compose file makes our life easier when using the service name inside our .(js|ts) files
   backend:
     build:
       # ? seperation of concerns relating the Dockerfile naming convention
