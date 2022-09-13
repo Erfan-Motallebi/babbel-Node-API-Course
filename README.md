@@ -44,7 +44,7 @@
 
 > I used <span style='color: #3CCF4E; font-weight: bold;'><a href='https://joi.dev/api/?v=17.6.0'>Joi</a></span> for **User Input Validation**
 
-> I made an attempt to follow some **principles** like
+> I made an attempt to follow some **principles** like **DRY** | **DAMP** | **KISS** | **Separation Of Concerns**
 
 > API could be more clarified using **OpenAPI** | **Swagger**
 
