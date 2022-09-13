@@ -11,31 +11,45 @@ const compression = require("compression");
 const helmet = require("helmet");
 const postgresql = require("./db/connection");
 const path = require("path");
+const os = require("node:os");
+const cluster = require("node:cluster");
 
-// Database Connection
-postgresql();
+if (!cluster.isWorker) {
+  for (let i = 0; i < os.cpus().length; i++) {
+    cluster.fork();
+  }
 
-const app = express();
+  cluster.on("exit", (worker, code, signal) => {
+    console.log(`Worker #${worker.process.pid} died`);
+    console.log(`Trying to fork another childProcess`);
+    cluster.fork();
+  });
+} else {
+  // Database Connection
+  postgresql();
 
-app.use(
-  express.json({ strict: true, limit: "150kb", type: "application/json" })
-);
-app.use(express.static(path.resolve("public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-app.use(helmet());
-app.use(compression());
+  const app = express();
 
-// User Routes
-app.use("/user", userRoutes);
-app.use("/language", languageRoutes);
-app.use("/lesson", lessonRoutes);
-app.use("/course", courseRoutes);
+  app.use(
+    express.json({ strict: true, limit: "150kb", type: "application/json" })
+  );
+  app.use(express.static(path.resolve("public")));
+  app.use(express.urlencoded({ extended: true }));
+  app.use(cors());
+  app.use(helmet());
+  app.use(compression());
 
-app.all("*", notFound);
+  // User Routes
+  app.use("/user", userRoutes);
+  app.use("/language", languageRoutes);
+  app.use("/lesson", lessonRoutes);
+  app.use("/course", courseRoutes);
 
-// Error Handlers
-app.use(errorHandler);
+  app.all("*", notFound);
+
+  // Error Handlers
+  app.use(errorHandler);
+}
 
 module.exports = {
   app,
